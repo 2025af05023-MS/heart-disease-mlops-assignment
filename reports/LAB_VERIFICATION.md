@@ -19,4 +19,8 @@ Data: UCI processed Cleveland file, 303 rows
 - Kubernetes service via kubectl port-forward: /health ready; /predict returned the same sample result
 - Kubernetes /metrics: Prometheus text metrics returned
 
-Evidence: screenshots/kubernetes.png is a direct screenshot taken in the lab VM. Training details are in training.log and artifacts/metadata.json. This is a local Minikube demonstration; the LoadBalancer external IP remained pending, so service access used port-forward. GitHub Actions execution and demonstration video require separate verification after publication.
+Evidence: screenshots/kubernetes.png is a direct screenshot taken in the lab VM. Training details are in training.log and artifacts/metadata.json. This is a local Minikube demonstration; the LoadBalancer external IP remained pending, so service access used port-forward. GitHub Actions and the lab walkthrough video are verified below.
+
+## Public CI verification
+
+Commit `b0f1f75` was pushed from this Prayogshala VM to the public coursework repository. The first GitHub Actions run completed successfully in 2 minutes 9 seconds. A screenshot taken in this VM is saved at `screenshots/github-actions.png`. A short silent VM screen recording is saved at demo/pipeline_walkthrough.webm`.

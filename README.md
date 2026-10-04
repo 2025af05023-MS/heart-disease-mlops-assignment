@@ -124,7 +124,7 @@ The `screenshots/README.md` file lists the real screenshots to capture in the
 lab. The final report must use numbers from `artifacts/metadata.json`, a link to
 the student's actual GitHub repository, and screenshots from actual CI, Docker,
 MLflow, and Kubernetes runs. A demo outline is in `demo/recording_script.md`.
-The completed VM deployment is documented in reports/LAB_VERIFICATION.md and screenshots/kubernetes.png; CI and recording need separate verification.
+The completed VM deployment is documented in reports/LAB_VERIFICATION.md and screenshots/kubernetes.png; GitHub Actions passed on the first public push. This VM contains screenshots/github-actions.png and a short silent demo/pipeline_walkthrough.webm.
 
 The coursework repository is `https://github.com/2025af05023-MS/heart-disease-mlops-assignment`.
 To publish updates after reviewing them, use these commands from this folder.
