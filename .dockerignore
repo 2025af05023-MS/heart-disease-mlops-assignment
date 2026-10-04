@@ -1,0 +1,13 @@
+.git
+.venv
+mlruns
+mlflow.db
+data
+tests
+reports
+screenshots
+__pycache__
+*.pyc
+artifacts/eda
+artifacts/*.png
+artifacts/metadata.json

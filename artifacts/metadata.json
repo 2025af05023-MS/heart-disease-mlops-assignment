@@ -1,0 +1,63 @@
+{
+  "dataset": "UCI processed Cleveland Heart Disease",
+  "source_url": "https://archive.ics.uci.edu/dataset/45/heart+disease",
+  "seed": 42,
+  "split": {
+    "train": 242,
+    "test": 61,
+    "test_fraction": 0.2
+  },
+  "selection_rule": "highest mean 5-fold training ROC-AUC",
+  "selected_model": "logistic_regression",
+  "candidate_results": {
+    "logistic_regression": {
+      "cv": {
+        "roc_auc": 0.9024931590148981,
+        "accuracy": 0.8471088435374149,
+        "precision": 0.8767529146045769,
+        "recall": 0.783399209486166
+      },
+      "best_params": {
+        "classifier__C": 1.0
+      },
+      "run_id": "6e14a3dc4b42435c9513d4ace9eb8e1e"
+    },
+    "random_forest": {
+      "cv": {
+        "roc_auc": 0.89915430784996,
+        "accuracy": 0.8136904761904761,
+        "precision": 0.8148253968253968,
+        "recall": 0.7735177865612648
+      },
+      "best_params": {
+        "classifier__max_depth": null,
+        "classifier__min_samples_leaf": 3,
+        "classifier__n_estimators": 100
+      },
+      "run_id": "844d56f726db4ecc95cdb05d88fde07a"
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.8852459016393442,
+    "precision": 0.8387096774193549,
+    "recall": 0.9285714285714286,
+    "roc_auc": 0.9664502164502166
+  },
+  "features": [
+    "age",
+    "sex",
+    "cp",
+    "trestbps",
+    "chol",
+    "fbs",
+    "restecg",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "slope",
+    "ca",
+    "thal"
+  ],
+  "threshold": 0.5,
+  "note": "Educational classifier only; not a clinical decision tool."
+}

@@ -1,0 +1,64 @@
+name: MLOps CI and image
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  validate-train-build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install
+        run: python -m pip install -r requirements.txt
+      - name: Lint
+        run: ruff check src tests
+      - name: Unit tests
+        run: pytest -q
+      - name: Download public UCI data
+        run: PYTHONPATH=src python -m heartlab.data
+      - name: Train and log experiments
+        run: PYTHONPATH=src python -m heartlab.train | tee training.log
+      - name: Build image
+        run: docker build -t heartlab-api:${{ github.sha }} .
+      - name: Container smoke test
+        run: |
+          docker run -d --name heartlab -p 8000:8000 heartlab-api:${{ github.sha }}
+          python - <<'PY'
+          import json, time, urllib.request
+          sample = {"age":63,"sex":1,"cp":1,"trestbps":145,"chol":233,"fbs":1,
+                    "restecg":2,"thalach":150,"exang":0,"oldpeak":2.3,
+                    "slope":3,"ca":0,"thal":6}
+          for _ in range(30):
+              try:
+                  request = urllib.request.Request(
+                      'http://127.0.0.1:8000/predict',
+                      data=json.dumps(sample).encode(),
+                      headers={'Content-Type':'application/json'})
+                  with urllib.request.urlopen(request) as response:
+                      result = json.load(response)
+                  assert 0 <= result['probability_positive'] <= 1
+                  print(result)
+                  break
+              except Exception:
+                  time.sleep(1)
+          else:
+              raise SystemExit('API smoke test failed')
+          PY
+      - name: Save logs and model evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mlops-run-${{ github.run_number }}
+          path: |
+            training.log
+            data/cleveland_clean.csv
+            artifacts/
+            mlflow.db
+            mlruns/
+          if-no-files-found: warn
