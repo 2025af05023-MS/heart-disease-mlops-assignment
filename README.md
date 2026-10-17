@@ -107,7 +107,7 @@ precision, recall, and ROC-AUC are logged. The 0.5 decision threshold is fixed
 before looking at test results. The small historical sample, site/time drift,
 possible selection bias, and missing `ca`/`thal` values limit generalization.
 
-### Observed local run (4 October 2026)
+### Observed verified run (17 October 2026)
 
 The reproducible local run used 242 training records and 61 held-out records.
 Five-fold mean ROC-AUC was **0.9025** for logistic regression and **0.8988** for
@@ -126,6 +126,8 @@ The repository keeps the reproducible source, tests, deployment manifest,
 artifacts, and VM verification notes.
 
 The coursework repository is [`https://github.com/2025af05023-MS/heart-disease-mlops-assignment`](https://github.com/2025af05023-MS/heart-disease-mlops-assignment).
+
+The hosted API is [`https://heartlab-api-2025af05023.azurewebsites.net`](https://heartlab-api-2025af05023.azurewebsites.net). The `/health`, `/predict`, and `/metrics` endpoints are available there.
 
 ## Quick evaluator check
 

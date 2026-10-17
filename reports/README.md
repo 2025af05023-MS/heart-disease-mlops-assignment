@@ -1,8 +1,6 @@
-# Refresh the written report
+# Report-generation notes
 
-The PDF is a ten-page report generated from the verified CSV and
-artifacts/metadata.json. It includes the student name and coursework
-repository URL. To regenerate from the project root:
+The script creates a local PDF from the verified CSV and artifacts/metadata.json when a PDF preview is needed. The final coursework submission is the Word document, which contains the report, screenshots, repository link, Azure API link, and video link. To regenerate the local preview from the project root:
 
     python -m pip install 'reportlab>=4.2,<5'
     python reports/build_report.py

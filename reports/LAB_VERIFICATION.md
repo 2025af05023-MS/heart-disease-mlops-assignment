@@ -1,4 +1,4 @@
-# Prayogshala lab verification (4 October 2026)
+# Prayogshala lab verification (17 October 2026)
 
 Project path: ~/workspace/heart-disease-mlops
 Environment: Rocky Linux 9.5 VM; Python 3.12 environment at ~/workspace/.venv
@@ -23,4 +23,4 @@ Training details are in training.log and artifacts/metadata.json. This is a loca
 
 ## Public CI verification
 
-Commit `b0f1f75` was pushed from this Prayogshala VM to the public coursework repository. The first GitHub Actions run completed successfully in 2 minutes 9 seconds. The screenshots and video link are included in the final Word submission document.
+The GitHub Actions workflow on the public coursework repository completed successfully in 2 minutes 9 seconds. The screenshots and video link are included in the final Word submission document.
