@@ -127,7 +127,17 @@ artifacts, and VM verification notes.
 
 The coursework repository is [`https://github.com/2025af05023-MS/heart-disease-mlops-assignment`](https://github.com/2025af05023-MS/heart-disease-mlops-assignment).
 
-The hosted API is [`https://heartlab-api-2025af05023.azurewebsites.net`](https://heartlab-api-2025af05023.azurewebsites.net). The `/health`, `/predict`, and `/metrics` endpoints are available there.
+The hosted API is [`https://heartlab-api-2025af05023.azurewebsites.net`](https://heartlab-api-2025af05023.azurewebsites.net). The `/health`, `/predict`, and `/metrics` endpoints are available there. These commands verify the live Azure deployment:
+
+```bash
+AZURE_API=https://heartlab-api-2025af05023.azurewebsites.net
+curl -s "$AZURE_API/health"
+curl -s -X POST "$AZURE_API/predict" \
+  -H 'Content-Type: application/json' -d @sample_request.json
+curl -s "$AZURE_API/metrics" | head
+```
+
+The health response should show `{"status":"ready"}`. The prediction request returns the model prediction and confidence, while the metrics request shows request count and latency for the hosted service.
 
 ## Quick evaluator check
 
