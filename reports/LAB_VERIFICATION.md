@@ -1,6 +1,6 @@
 # Prayogshala lab verification (17 October 2026)
 
-Project path: ~/workspace/heart-disease-mlops
+Project path: ~/workspace/2025af05023/heart-disease-mlops
 Environment: Rocky Linux 9.5 VM; Python 3.12 environment at ~/workspace/.venv
 Data: UCI processed Cleveland file, 303 rows
 

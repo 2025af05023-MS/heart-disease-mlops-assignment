@@ -29,7 +29,7 @@ Installing packages is temporary; the files in `~/workspace` persist. The lab ma
 describes launching the course lab from the Prayogshala portal through BITS SSO.
 
 ```bash
-cd ~/workspace/heart-disease-mlops
+cd ~/workspace/2025af05023/heart-disease-mlops
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
@@ -56,7 +56,7 @@ inside the joblib model. All imputation and scaling are fitted inside CV folds.
 Run the API in a second terminal:
 
 ```bash
-cd ~/workspace/heart-disease-mlops
+cd ~/workspace/2025af05023/heart-disease-mlops
 source .venv/bin/activate
 export PYTHONPATH=src
 uvicorn heartlab.api:app --host 127.0.0.1 --port 8000
