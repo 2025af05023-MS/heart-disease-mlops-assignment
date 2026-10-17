@@ -125,15 +125,23 @@ GitHub repository link, the Azure API link, and the Google Drive video link.
 The repository keeps the reproducible source, tests, deployment manifest,
 artifacts, and VM verification notes.
 
-The coursework repository is `https://github.com/2025af05023-MS/heart-disease-mlops-assignment`.
-To publish updates after reviewing them, use these commands from this folder.
+The coursework repository is [`https://github.com/2025af05023-MS/heart-disease-mlops-assignment`](https://github.com/2025af05023-MS/heart-disease-mlops-assignment).
+
+## Quick evaluator check
+
+Clone the repository, install the requirements, and run the tests:
 
 ```bash
-git init -b main
-git add .
-git commit -m "Add Cleveland heart disease MLOps experiment"
-git remote add origin https://github.com/2025af05023-MS/heart-disease-mlops-assignment.git
-git push -u origin main
+git clone https://github.com/2025af05023-MS/heart-disease-mlops-assignment.git
+cd heart-disease-mlops-assignment
+python -m pip install -r requirements.txt
+PYTHONPATH=src python -m pytest -q
+```
+
+To run the API locally:
+
+```bash
+PYTHONPATH=src uvicorn heartlab.api:app --host 127.0.0.1 --port 8000
 ```
 
 ## Source and license
